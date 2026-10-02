@@ -103,7 +103,7 @@ function render() {
 function renderHome() {
   app.innerHTML = `
   <section>
-    <h1>Outfit <em>選手権</em></h1>
+    <p class="room-label">02 / PICK YOUR FAVORITE</p><h1>衣装 <em>選手権</em></h1>
     <p class="lede">予選は4択、決勝は2択。好きな衣装を選んでいくと、最後にあなたの衣装TOP5が決まります。</p>
   </section>
   <section class="sec">
@@ -227,26 +227,26 @@ async function drawResult() {
   const W = 1080, H = 1700, c = document.createElement('canvas'); c.width = W; c.height = H;
   const x = c.getContext('2d');
   try { await Promise.all([document.fonts.load('600 60px "Klee One"'), document.fonts.load('700 30px "Zen Kaku Gothic New"')]); } catch (e) {}
-  const hand = '"Klee One", "Hiragino Maru Gothic ProN", cursive', goth = '"Zen Kaku Gothic New", "Hiragino Sans", sans-serif';
+  const hand = '"Zen Kaku Gothic New", "Hiragino Sans", sans-serif', goth = '"Zen Kaku Gothic New", "Hiragino Sans", sans-serif';
   const imgs = await Promise.all(S.ranked.map(s => loadImg(src(s))));
   // desk
-  x.fillStyle = '#f1ebe1'; x.fillRect(0, 0, W, H);
-  x.fillStyle = 'rgba(64,56,47,.06)'; for (let i = 0; i < W; i += 44) for (let j = 0; j < H; j += 44) x.fillRect(i, j, 3, 3);
+  x.fillStyle = '#f7f5ed'; x.fillRect(0, 0, W, H);
+  
   // heading
-  x.fillStyle = '#6b6257'; x.font = `700 28px ${goth}`; x.textAlign = 'center'; x.fillText('RESULT', W / 2, 92);
-  x.fillStyle = '#40382f'; x.font = `600 64px ${hand}`; x.fillText(resultTitle(), W / 2, 176);
+  x.fillStyle = '#625f6d'; x.font = `700 28px ${goth}`; x.textAlign = 'center'; x.fillText('RESULT', W / 2, 92);
+  x.fillStyle = '#282536'; x.font = `600 64px ${hand}`; x.fillText(resultTitle(), W / 2, 176);
   x.font = `600 56px ${hand}`; x.fillText(`好きな衣装 TOP${S.ranked.length}`, W / 2, 252);
   // sheet
   const sx = 60, sy = 300, sw = W - 120, sh = H - sy - 60;
-  x.save(); x.shadowColor = 'rgba(64,56,47,.25)'; x.shadowBlur = 40; x.shadowOffsetY = 18; x.fillStyle = '#b8ad9d'; x.fillRect(sx, sy, sw, sh); x.restore();
+  x.save(); x.shadowColor = 'rgba(64,56,47,.25)'; x.shadowBlur = 40; x.shadowOffsetY = 18; x.fillStyle = '#ded7ff'; x.fillRect(sx, sy, sw, sh); x.restore();
   // 1st
   const fw = 480, fh = 640, fx = (W - fw) / 2, fy = sy + 64;
   x.save(); x.translate(W / 2, fy + (fh + 120) / 2); x.rotate(-1.5 * Math.PI / 180); x.translate(-W / 2, -(fy + (fh + 120) / 2));
   x.save(); x.shadowColor = 'rgba(64,56,47,.35)'; x.shadowBlur = 36; x.shadowOffsetY = 16; x.fillStyle = '#fff'; x.fillRect(fx - 20, fy - 20, fw + 40, fh + 120); x.restore();
   cover(x, imgs[0], fx, fy, fw, fh);
-  x.fillStyle = '#40382f'; x.textAlign = 'left'; x.font = `600 58px ${hand}`; x.fillText('1位', fx, fy + fh + 74);
+  x.fillStyle = '#282536'; x.textAlign = 'left'; x.font = `600 58px ${hand}`; x.fillText('1位', fx, fy + fh + 74);
   if (S.mode === 'box') { x.textAlign = 'right'; x.font = `600 40px ${hand}`; x.fillText(M(S.ranked[0].m).name, fx + fw, fy + fh + 70); }
-  x.fillStyle = 'rgba(226,122,148,.85)'; x.translate(W / 2, fy - 22); x.rotate(-4 * Math.PI / 180); x.fillRect(-80, -22, 160, 44);
+  x.fillStyle = '#ffd5df'; x.translate(W / 2, fy - 22); x.rotate(-4 * Math.PI / 180); x.fillRect(-80, -22, 160, 44);
   x.restore();
   // 2-5
   const gap = 24, n = 4, cw = (sw - 80 - gap * (n - 1)) / n, ch = cw * 4 / 3, cy = fy + fh + 150;
@@ -254,11 +254,11 @@ async function drawResult() {
     const cx = sx + 40 + i * (cw + gap);
     x.save(); x.shadowColor = 'rgba(64,56,47,.3)'; x.shadowBlur = 20; x.shadowOffsetY = 10; x.fillStyle = '#fff'; x.fillRect(cx, cy, cw, ch + (S.mode === 'box' ? 96 : 70)); x.restore();
     cover(x, imgs[i + 1], cx + 8, cy + 8, cw - 16, ch - 8);
-    x.fillStyle = '#40382f'; x.textAlign = 'center'; x.font = `600 36px ${hand}`; x.fillText(`${i + 2}位`, cx + cw / 2, cy + ch + 46);
-    if (S.mode === 'box') { x.fillStyle = '#6b6257'; x.font = `700 22px ${goth}`; x.fillText(M(s.m).name, cx + cw / 2, cy + ch + 80); }
+    x.fillStyle = '#282536'; x.textAlign = 'center'; x.font = `600 36px ${hand}`; x.fillText(`${i + 2}位`, cx + cw / 2, cy + ch + 46);
+    if (S.mode === 'box') { x.fillStyle = '#625f6d'; x.font = `700 22px ${goth}`; x.fillText(M(s.m).name, cx + cw / 2, cy + ch + 80); }
   });
   // footer
-  x.fillStyle = '#fff'; x.font = `700 24px ${goth}`; x.textAlign = 'left'; x.fillText('MUZE TOOL BOX ・ Outfit選手権', sx + 40, sy + sh - 34);
+  x.fillStyle = '#282536'; x.font = `700 24px ${goth}`; x.textAlign = 'left'; x.fillText('MUZE TOOL BOX ・ Outfit選手権', sx + 40, sy + sh - 34);
   x.textAlign = 'right'; x.fillText(today(), sx + sw - 40, sy + sh - 34);
   return new Promise(r => c.toBlob(r, 'image/png'));
 }

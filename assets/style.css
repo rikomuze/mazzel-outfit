@@ -118,3 +118,29 @@ h1 em{font-style:normal;border-bottom:3px solid var(--mint)}
 html{touch-action:manipulation;overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{overflow-x:clip;max-width:100vw}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* MUZE PLAY ROOM */
+:root{--desk:#f7f5ed;--paper:#fff;--pencil:#282536;--faded:#625f6d;--line:#d5d1d9;--sheet:#ded7ff;--berry:#a43e61;--tape-berry:#ffd5df;--tape-mint:#dcefa5;--mint:#dcefa5;--pink:#ffd5df;--shadow:4px 5px 0 #282536;--dash:1px dashed #d5d1d9}
+body{background:var(--desk);font-size:1rem;padding:0 20px calc(32px + env(safe-area-inset-bottom))}
+.wrap{max-width:720px;gap:24px}
+.room-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);font-size:.875rem;font-weight:700}
+.room-nav a{text-decoration:none;letter-spacing:.045em}.room-nav span{font-family:var(--hand);font-weight:600}
+.room-label{display:inline-block;margin:10px 0 15px;background:var(--pencil);color:var(--desk);padding:3px 10px;font-size:.75rem;font-weight:700;letter-spacing:.08em;transform:rotate(-3deg)}
+h1{font-family:var(--gothic);font-size:clamp(2rem,6vw,2.875rem);font-weight:900;letter-spacing:.01em;transform:none;line-height:1.3}
+h1 em{position:relative;isolation:isolate;border:0}h1 em:after{content:'';position:absolute;left:-2%;right:-2%;bottom:7%;height:25%;background:var(--mint);z-index:-1;transform:rotate(-2deg)}
+.lede{font-family:var(--hand);font-weight:600;font-size:1rem;color:var(--pencil);margin-top:12px}
+main{gap:24px}.sec{gap:14px;background:white;border:1.5px solid var(--pencil);border-radius:5px;box-shadow:var(--shadow);padding:22px}
+.sec h2,.guide h2{font-family:var(--gothic);font-size:1.125rem;font-weight:900}.meta{font-size:.875rem;line-height:1.7}
+.members{gap:14px 12px}.mcard{border:1px solid var(--pencil);border-radius:3px;box-shadow:2px 3px 0 var(--pencil);background:white;padding:4px 4px 0;transition:transform .15s,box-shadow .15s}
+.mcard:hover{transform:translateY(-2px);box-shadow:2px 5px 0 var(--pencil)}.mcard span{font-family:var(--gothic);font-weight:700;font-size:.875rem;letter-spacing:0;padding:6px 0}
+.boxcard{border:1px solid var(--pencil);border-radius:4px;box-shadow:3px 4px 0 var(--pencil);background:var(--violet,#ded7ff);transform:none;padding:8px 8px 0}.boxcard:before{display:none}.boxcard b{font-family:var(--gothic);font-size:1rem;font-weight:700}.boxcard small{font-size:.8125rem}.boxcard .cap{flex-wrap:wrap}.boxstrip{overflow:hidden;border-radius:2px}
+.guide{border:1.5px solid var(--pencil);border-radius:5px;box-shadow:var(--shadow);padding:22px}.steps span{font-size:.875rem}.steps li:before{font-family:var(--gothic);font-weight:700}
+.bar{font-size:.875rem;flex-wrap:wrap}.who{font-family:var(--gothic);font-size:.875rem;font-weight:700}.prog .row{font-size:.875rem}.prog .row b{font-size:.9375rem}.track{border:1px solid var(--pencil);border-radius:20px;overflow:hidden;height:10px}.track.final i{background:#ded7ff}
+.q{font-family:var(--gothic);font-size:1.375rem;font-weight:900;letter-spacing:.01em}.grid4,.grid2{gap:18px}.pick,.grid2 .pick{border:1px solid var(--pencil);border-radius:4px;box-shadow:3px 4px 0 var(--pencil);padding:6px 6px 0;background:white}.grid2 .pick:first-child,.grid2 .pick:nth-child(2){transform:none}.pick:hover{box-shadow:3px 6px 0 var(--pencil)}.pick span{font-family:var(--gothic);font-weight:700;font-size:.9375rem;padding:8px 0}.pick.chosen{outline:3px solid var(--berry)}
+.hint{font-size:.875rem}.vs{font-family:var(--gothic);font-weight:700;background:var(--pencil);border-radius:30px;font-size:.875rem;transform:translate(-50%,-50%)}
+.btn,.btn.ghost{border:1.5px solid var(--pencil);border-radius:30px;box-shadow:2px 3px 0 var(--pencil);font-size:.9375rem;min-height:46px;padding:10px 16px;background:var(--mint);color:var(--pencil)}.btn.ghost{background:white}.btn:active:not(:disabled){transform:translate(1px,2px);box-shadow:1px 1px 0 var(--pencil)}
+.interlude .five{gap:10px}.interlude img{border:1px solid var(--pencil);border-radius:3px;box-shadow:2px 3px 0 var(--pencil)}
+.result-h small{font-size:.8125rem}.result-h h1{font-size:1.875rem}.poster{border:1.5px solid var(--pencil);border-radius:5px;background:#ded7ff;padding:22px}.first{border:1px solid var(--pencil);box-shadow:3px 4px 0 var(--pencil)}.first:before{display:none}.first .cap,.rest b{font-family:var(--gothic);font-weight:900}.rest{gap:10px}.rest div{border:1px solid var(--pencil);border-radius:3px;box-shadow:2px 3px 0 var(--pencil)}.rest b{font-size:.875rem}.rest small{font-size:.75rem}.poster .foot{font-size:.75rem;color:var(--pencil);letter-spacing:0;gap:10px;flex-wrap:wrap}
+.credit{padding:22px 0 8px;margin:6px 0 0;border-top:1px dashed var(--line);font-size:.8125rem;line-height:1.8}.credit>span{font-size:.75rem;letter-spacing:.05em}
+:focus-visible{outline:3px solid #8051bd;outline-offset:4px}
+@media(max-width:420px){body{padding-inline:16px}.wrap{gap:20px}.room-nav{padding:17px 0;gap:10px;font-size:.8125rem}.sec,.guide{padding:18px 14px}.members{gap:11px 8px}.mcard span{font-size:.6875rem}.lede{font-size:.875rem}.grid4,.grid2{gap:12px}.poster{padding:18px 12px}.rest{gap:7px}.rest small{font-size:.625rem}.btns{gap:12px}.btn{font-size:.875rem}.boxcard small{font-size:.8125rem}}
